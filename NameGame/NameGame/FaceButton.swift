@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-open class FaceButton: UIButton {
+final class FaceButton: UIButton {
 
     var id: Int = 0
-    var tintView: UIView!
-    var nameLabel: UILabel!
+    private var tintView: UIView!
+    private var nameLabel: UILabel!
     var answerState = AnswerState.unknown {
         didSet {
             switch answerState {
@@ -43,7 +43,7 @@ open class FaceButton: UIButton {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         setTitleColor(.white, for: .normal)
         titleLabel?.alpha = 0.0
 
@@ -83,7 +83,7 @@ open class FaceButton: UIButton {
         }).resume()
     }
 
-    func showAnswer(withColor color: UIColor) {
+    private func showAnswer(withColor color: UIColor) {
         tintView.backgroundColor = color
         if let titleLabel = titleLabel {
             bringSubview(toFront: titleLabel)
@@ -95,7 +95,7 @@ open class FaceButton: UIButton {
         })
     }
 
-    func hideAnswer() {
+    private func hideAnswer() {
         tintView.alpha = 0.0
         titleLabel?.alpha = 0.0
     }

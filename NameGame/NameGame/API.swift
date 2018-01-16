@@ -12,7 +12,7 @@ import UIKit
 
 open class API {
 
-    static let dataURL: String = "https://www.willowtreeapps.com/api/v1.0/profiles"
+    private static let dataURL: String = "https://www.willowtreeapps.com/api/v1.0/profiles"
     
     static func getProfiles(_ completion: @escaping ([Profile]?, Error?) -> Void) {
         let requestURL: URL = URL(string: dataURL)!

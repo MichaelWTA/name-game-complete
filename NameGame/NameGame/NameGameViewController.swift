@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameGameViewController: UIViewController {
+final class NameGameViewController: UIViewController {
 
     @IBOutlet private var outerStackView: UIStackView!
     @IBOutlet private var innerStackView1: UIStackView!
@@ -16,7 +16,7 @@ class NameGameViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var imageButtons: [FaceButton]!
 
-    let nameGame = NameGame()
+    private let nameGame = NameGame()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class NameGameViewController: UIViewController {
         }
     }
 
-    @IBAction func faceTapped(_ button: FaceButton) {
+    @IBAction private func faceTapped(_ button: FaceButton) {
         if nameGame.checkAnswer(index: button.id) {
             button.answerState = .correct
             setInteractionEnabled(false)
@@ -47,13 +47,13 @@ class NameGameViewController: UIViewController {
     }
 
 
-    func setInteractionEnabled(_ value: Bool) {
+    private func setInteractionEnabled(_ value: Bool) {
         for button in imageButtons {
             button.isUserInteractionEnabled = value
         }
     }
 
-    func configureSubviews(_ orientation: UIDeviceOrientation) {
+    private func configureSubviews(_ orientation: UIDeviceOrientation) {
         if orientation.isLandscape {
             outerStackView.axis = .vertical
             innerStackView1.axis = .horizontal

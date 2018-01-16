@@ -12,14 +12,14 @@ protocol NameGameDelegate: class {
     func startNextRound()
 }
 
-class NameGame {
+final class NameGame {
 
     weak var delegate: NameGameDelegate?
 
-    let numberPeople = 6
-    var guessesLeft = 5
-    var profiles: [Profile] = []
-    var correctAnswer: Profile!
+    private let numberPeople = 6
+    private var guessesLeft = 5
+    private var profiles: [Profile] = []
+    private var correctAnswer: Profile!
     var currentChoices: [Profile] = [Profile]()
 
     // Load JSON data from API
@@ -40,8 +40,7 @@ class NameGame {
         delegate?.startNextRound()
     }
 
-    func createNewRound() {
-
+    private func createNewRound() {
         var currentChoiceIndexes = [Int]()
         currentChoices = [Profile]()
         guessesLeft = numberPeople
