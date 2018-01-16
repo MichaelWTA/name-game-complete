@@ -74,8 +74,7 @@ class NameGame {
     func checkAnswer(index: Int) -> Bool {
         let profile = currentChoices[index]
         if correctAnswer == profile {
-            createNewRound()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.createNewRound()
                 self.delegate?.startNextRound()
             }
@@ -86,8 +85,7 @@ class NameGame {
                 createNewRound()
                 self.delegate?.startNextRound()
             }
+            return false
         }
-
-        return false
     }
 }

@@ -10,10 +10,10 @@ import UIKit
 
 class NameGameViewController: UIViewController {
 
-    @IBOutlet weak var outerStackView: UIStackView!
-    @IBOutlet weak var innerStackView1: UIStackView!
-    @IBOutlet weak var innerStackView2: UIStackView!
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet private var outerStackView: UIStackView!
+    @IBOutlet private var innerStackView1: UIStackView!
+    @IBOutlet private var innerStackView2: UIStackView!
+    @IBOutlet var questionLabel: UILabel!
     @IBOutlet var imageButtons: [FaceButton]!
 
     let nameGame = NameGame()
